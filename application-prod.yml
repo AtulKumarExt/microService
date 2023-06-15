@@ -1,7 +1,4 @@
-spring:
-  application:
-    name: Config-Prod
-eureka:
+ureka:
   instance:
     prefer-ip-address: true
   client:
