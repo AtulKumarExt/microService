@@ -1,0 +1,6 @@
+package com.user.service;
+
+public interface UserService {
+
+	User addUser(User user);
+}

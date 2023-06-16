@@ -1,0 +1,10 @@
+package com.rating.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rating.entities.Rating;
+
+public interface RatingRepo extends JpaRepository<Rating, String>{
+
+	List<Rating> findByUserId(String userId);
+}

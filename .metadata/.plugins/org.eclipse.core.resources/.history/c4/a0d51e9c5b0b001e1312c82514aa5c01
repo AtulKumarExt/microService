@@ -1,0 +1,10 @@
+package com.rating.service;
+
+import com.rating.entities.Rating;
+
+public interface RatingService {
+
+	Rating addRating(Rating rating);
+	List<Rating> getAllRatings();
+	Rating findById(String ratingId);
+}

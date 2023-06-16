@@ -1,0 +1,36 @@
+package com.hotel.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.hotel.entities.Hotel;
+import com.hotel.repo.HotelRepo;
+import com.hotel.service.HotelService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class HotelServiceImpl implements HotelService{
+
+	private HotelRepo hotelRepo;
+
+	@Override
+	public Hotel addHotel(Hotel hotel) {
+		// TODO Auto-generated method stub
+		return hotelRepo.save(hotel);
+	}
+
+	@Override
+	public Hotel findById(String id) {
+		// TODO Auto-generated method stub
+		return hotelRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("hotel is found with this id "+id));
+	}
+
+	@Override
+	public List<Hotel> findAllHotels() {
+		// TODO Auto-generated method stub
+		return hotelRepo.findAll();
+	}
+}

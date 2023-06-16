@@ -1,0 +1,57 @@
+package com.user.service.impl;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.user.entities.User;
+import com.user.exception.ResourceNotFoundException;
+import com.user.repo.UserRepo;
+import com.user.service.UserService;
+
+import lombok.AllArgsConstructor;
+
+
+@Service
+@AllArgsConstructor
+public class UserServiceImpl implements UserService{
+
+	private UserRepo userRepo;
+
+	@Override
+	public User addUser(User user) {
+		String userId=UUID.randomUUID().toString();
+		user.setUserId(userId);
+		return userRepo.save(user);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepo.findAll();
+	}
+
+	@Override
+	public User findById(String id) {
+		// TODO Auto-generated method stub.
+		return getById(id);
+	}
+
+	private User getById(String id) {
+		return userRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("user is not found with this id "+id));
+	}
+
+	@Override
+	public void delete(String id) {
+		User user=getById(id);
+		userRepo.delete(user);
+	}
+
+	@Override
+	public User update(User user) {
+		getById(user.getUserId());
+		
+		return null;
+	}
+}

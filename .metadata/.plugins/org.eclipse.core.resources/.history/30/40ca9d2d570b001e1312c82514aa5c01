@@ -1,0 +1,15 @@
+package com.hotel.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.hotel.repo.HotelRepo;
+import com.hotel.service.HotelService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class HotelServiceImpl implements HotelService{
+
+	private HotelRepo hotelRepo;
+}

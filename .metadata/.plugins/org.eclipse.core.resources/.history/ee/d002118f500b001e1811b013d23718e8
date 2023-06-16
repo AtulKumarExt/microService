@@ -1,0 +1,48 @@
+package com.user.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.user.entities.User;
+import com.user.repo.UserRepo;
+import com.user.service.UserService;
+
+import lombok.AllArgsConstructor;
+
+
+@Service
+@AllArgsConstructor
+public class UserServiceImpl implements UserService{
+
+	private UserRepo userRepo;
+
+	@Override
+	public User addUser(User user) {
+		return userRepo.save(user);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User update(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
